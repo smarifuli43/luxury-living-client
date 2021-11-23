@@ -20,6 +20,7 @@ const useFirebase = () => {
   const [user, setUser] = useState({});
   const [success, setSuccess] = useState(false);
 
+  
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
