@@ -1,31 +1,60 @@
 import React from 'react';
-import { useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Header from '../../Shared/Header/Header';
 import { useForm } from 'react-hook-form';
 import './Register.css';
 import { Link } from 'react-router-dom';
-import googleLogo from '../../../img/google-color.svg'
+import googleLogo from '../../../img/google-color.svg';
 import useAuth from '../../../Hooks/useAuth';
+import { Alert } from 'react-bootstrap';
 
 const Register = () => {
   const navigate = useNavigate();
-  const { createNewUser, signInWithGoogle, signInWithFacebook } = useAuth();
+  const {
+    createNewUser,
+    signInWithGoogle,
+    signInWithFacebook,
+    error,
+    setError,
+  } = useAuth();
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => handleCreateNewUser(data);
-  
+
   const handleCreateNewUser = (user) => {
     const { email, password, firstName, lastName } = user;
-    const displayName = `${firstName} ${lastName}`
+
+    if (password.length < 8) {
+      setError('Password must contained 8 character');
+      return;
+    }
+    const isContainsSymbol =
+      /^(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]).*$/;
+    if (!isContainsSymbol.test(password)) {
+      setError('Password must contain at least one Special Symbol.');
+      return;
+    }
+    const isContainsNumber = /^(?=.*[0-9]).*$/;
+    if (!isContainsNumber.test(password)) {
+      setError('Password must contain at least one Digit.');
+      return;
+    }
+    const isContainsUppercase = /^(?=.*[A-Z]).*$/;
+    if (!isContainsUppercase.test(password)) {
+      setError('Password must have at least one Uppercase Character.');
+      return;
+    }
+
+    const displayName = `${firstName} ${lastName}`;
     createNewUser(email, password, displayName, navigate);
     reset();
-  }
+  };
 
   const googleSignIn = () => {
     signInWithGoogle();
-  }
+  };
   const facebookSignIn = () => {
     signInWithFacebook();
-  }
+  };
 
   return (
     <>
@@ -80,6 +109,11 @@ const Register = () => {
                 </Link>{' '}
               </span>
             </p>
+            {error && (
+              <Alert variant='danger' className='mt-2 py-2'>
+                {error}
+              </Alert>
+            )}
           </div>
         </div>
         <div className='row d-flex justify-content-center px-md-5'>
