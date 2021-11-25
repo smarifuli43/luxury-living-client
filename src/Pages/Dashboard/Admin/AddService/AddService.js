@@ -3,11 +3,13 @@ import { Alert } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import './AddService.css';
 
+/* 
+*/
+
 const AddService = () => {
   const { register, handleSubmit, reset } = useForm();
   const [success, setSuccess] = useState();
   const onSubmit = (data) => {
-    console.log(data);
     fetch('http://localhost:5000/services', {
       method: 'POST',
       headers: {
@@ -27,9 +29,9 @@ const AddService = () => {
     <div style={{ background: '#F4F7FC' }}>
       <div className='container py-5'>
         <div className='row  d-flex justify-content-center'>
-          <div className='col-12 col-md-10 col-lg-8'>
+          <div className='col-12 col-md-10 col-lg-7'>
             <div className='add-service bg-white p-4'>
-              <h3 className='mb-4 heading-main'>Add a Service</h3>
+              <h3 className='mb-5 heading-main'>Add a Service</h3>
 
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className='col-12 d-md-flex'>
@@ -45,6 +47,18 @@ const AddService = () => {
                   </div>
 
                   <div className='w-100 ps-0 ps-md-3'>
+                    <label htmlFor='name' className='mb-2'>
+                      Price
+                    </label>
+                    <input
+                      required
+                      placeholder='Enter price'
+                      {...register('price')}
+                    />
+                  </div>
+                </div>
+                <div className='col-12 '>
+                  <div className='w-100 '>
                     <label htmlFor='image' className='mb-2'>
                       Image
                     </label>
@@ -54,15 +68,17 @@ const AddService = () => {
                       {...register('img')}
                     />
                   </div>
-                </div>
-                <div className='col-12 col-md-6 p-0'>
-                  <label htmlFor='description' className='mb-2'>
-                    Description
-                  </label>
-                  <textarea
-                    placeholder='Short description'
-                    {...register('description', { required: true })}
-                  />
+
+                  <div className='w-100 '>
+                    <label htmlFor='description' className='mb-2'>
+                      Description
+                    </label>
+                    <textarea
+                      rows='4'
+                      placeholder='Short description'
+                      {...register('description', { required: true })}
+                    />
+                  </div>
                 </div>
                 <button
                   type='submit'

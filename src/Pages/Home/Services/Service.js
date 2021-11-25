@@ -1,12 +1,12 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
-import './Service.css'
+import './Service.css';
 
 const Service = (props) => {
   const { name, price, description, img, _id } = props.service;
   return (
     <div>
-      <Card className='h-100 card  px-2 py-3 service-card' >
+      <Card className='h-100 card  px-2 py-3 service-card'>
         <Card.Img
           variant='top'
           src={img}
@@ -25,7 +25,12 @@ const Service = (props) => {
           <Card.Text>
             <p className='secondary-text'>{description.slice(0, 120)}</p>
           </Card.Text>
-          <button className='btn-luxury py-2'>Booking</button>
+          <button
+            className='btn btn-outline-dark py-2 shadow-sm'
+            style={{ borderColor: '#251d58' }}
+          >
+            Booking
+          </button>
         </Card.Body>
       </Card>
     </div>

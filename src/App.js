@@ -9,6 +9,7 @@ import NotFound from './Pages/NotFound/NotFound';
 import Register from './Pages/Login/Register/Register';
 import AuthProvider from './Context/AuthProvider';
 import AddService from './Pages/Dashboard/Admin/AddService/AddService';
+import ExploreServices from './Pages/ExploreServices/ExploreServices';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path='dashboard' element={<Dashboard />} />
             <Route path='register' element={<Register />} />
             <Route path='add' element={<AddService/> }/>
+            <Route path='exploreservices' element={<ExploreServices/> }/>
             <Route path='*' element={<NotFound />} />
           </Routes>
         </Router>
