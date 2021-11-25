@@ -23,26 +23,26 @@ const Register = () => {
   const handleCreateNewUser = (user) => {
     const { email, password, firstName, lastName } = user;
 
-    if (password.length < 8) {
-      setError('Password must contained 8 character');
-      return;
-    }
-    const isContainsSymbol =
-      /^(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]).*$/;
-    if (!isContainsSymbol.test(password)) {
-      setError('Password must contain at least one Special Symbol.');
-      return;
-    }
-    const isContainsNumber = /^(?=.*[0-9]).*$/;
-    if (!isContainsNumber.test(password)) {
-      setError('Password must contain at least one Digit.');
-      return;
-    }
-    const isContainsUppercase = /^(?=.*[A-Z]).*$/;
-    if (!isContainsUppercase.test(password)) {
-      setError('Password must have at least one Uppercase Character.');
-      return;
-    }
+    // if (password.length < 8) {
+    //   setError('Password must contained 8 character');
+    //   return;
+    // }
+    // const isContainsSymbol =
+    //   /^(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]).*$/;
+    // if (!isContainsSymbol.test(password)) {
+    //   setError('Password must contain at least one Special Symbol.');
+    //   return;
+    // }
+    // const isContainsNumber = /^(?=.*[0-9]).*$/;
+    // if (!isContainsNumber.test(password)) {
+    //   setError('Password must contain at least one Digit.');
+    //   return;
+    // }
+    // const isContainsUppercase = /^(?=.*[A-Z]).*$/;
+    // if (!isContainsUppercase.test(password)) {
+    //   setError('Password must have at least one Uppercase Character.');
+    //   return;
+    // }
 
     const displayName = `${firstName} ${lastName}`;
     createNewUser(email, password, displayName, navigate);

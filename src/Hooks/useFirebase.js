@@ -20,7 +20,6 @@ const useFirebase = () => {
   const [user, setUser] = useState({});
   const [success, setSuccess] = useState(false);
 
-  
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
@@ -32,6 +31,7 @@ const useFirebase = () => {
         setError('');
         setUser(result.user);
         setUserName(name);
+        saveUser(email, name, 'POST');
         navigate('/home');
       })
       .catch((error) => {
@@ -58,7 +58,7 @@ const useFirebase = () => {
         setUser(result.user);
       })
       .catch((error) => {
-        console.log(error.message)
+        console.log(error.message);
         setError(error.message);
       });
   };
@@ -67,7 +67,9 @@ const useFirebase = () => {
   const signInWithGoogle = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
-        setUser(result.user);
+        const user = result.user;
+        setUser(user);
+        saveUser(user.email, user.displayName, 'PUT');
       })
       .catch((error) => {
         setError(error.message);
@@ -78,7 +80,9 @@ const useFirebase = () => {
   const signInWithFacebook = () => {
     signInWithPopup(auth, facebookProvider)
       .then((result) => {
-        setUser(result.user);
+         const user = result.user;
+         setUser(user);
+         saveUser(user.email, user.displayName, 'PUT');
       })
       .catch((error) => {
         setError(error.message);
@@ -117,6 +121,18 @@ const useFirebase = () => {
     });
     return () => unsubscibed;
   }, [auth]);
+
+  // save user to the database
+  const saveUser = (email, name, method) => {
+    const user = { email, name };
+    fetch('http://localhost:5000/users', {
+      method: method,
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(user),
+    }).then();
+  };
 
   return {
     user,
