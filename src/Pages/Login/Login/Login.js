@@ -7,36 +7,28 @@ import useAuth from '../../../Hooks/useAuth';
 import PasswordReset from '../Reset/PasswordReset/PasswordReset';
 import { Alert } from 'react-bootstrap';
 
-
 const Login = () => {
-  const {
-    signinWithEmailandPass,
-    signInWithGoogle,
-    signInWithFacebook,
-  } = useAuth();
+  const { signinWithEmailandPass, signInWithGoogle, signInWithFacebook } =
+    useAuth();
   const [modalShow, setModalShow] = React.useState(false);
 
-
-
   const { register, handleSubmit, reset, error } = useForm();
-  console.log(error)
+  console.log(error);
   const onSubmit = (data) => {
     handleEmailandPassSignin(data);
   };
   //  email signin
   const handleEmailandPassSignin = (user) => {
-    signinWithEmailandPass(user.email, user.password)
+    signinWithEmailandPass(user.email, user.password);
     reset();
   };
   const googleSignIn = () => {
     signInWithGoogle();
   };
 
-    const facebookSignIn = () => {
-      signInWithFacebook();
+  const facebookSignIn = () => {
+    signInWithFacebook();
   };
-  
- 
 
   return (
     <>
@@ -68,7 +60,16 @@ const Login = () => {
                 required
                 className='mb-2'
               />
-              <span className='my-0 py-0' style={{ fontSize: '15px' }}>Forgot Password?<button className='btn text-danger' onClick={() => setModalShow(true)}> Reset Now</button></span>
+              <span className='my-0 py-0' style={{ fontSize: '15px' }}>
+                Forgot Password?
+                <button
+                  className='btn text-danger'
+                  onClick={() => setModalShow(true)}
+                >
+                  {' '}
+                  Reset Now
+                </button>
+              </span>
               <PasswordReset
                 show={modalShow}
                 onHide={() => setModalShow(false)}
@@ -87,11 +88,11 @@ const Login = () => {
               </span>
             </p>
 
-             {error && (
-            <Alert variant='danger' className='mx-3 py-2'>
-              {error}
-            </Alert>
-          )}
+            {error && (
+              <Alert variant='danger' className='mx-3 py-2'>
+                {error}
+              </Alert>
+            )}
           </div>
         </div>
         <div className='row d-flex justify-content-center px-md-5'>
@@ -114,7 +115,10 @@ const Login = () => {
               style={{ border: '1px solid #C7C7C7' }}
               onClick={facebookSignIn}
             >
-              <i class='fab fa-facebook fs-2' style={{ color: '#3076FF' }}></i>
+              <i
+                className='fab fa-facebook fs-2'
+                style={{ color: '#3076FF' }}
+              ></i>
               <span className='pe-1 pe-md-5'>Continue with Facebook</span>
             </button>
           </div>

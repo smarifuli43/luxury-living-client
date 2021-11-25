@@ -1,8 +1,9 @@
-*{
+* {
   font-family: 'Poppins', sans-serif;
 }
-.btn-luxury{
-  background-color: #251D58;
+
+.btn-luxury {
+  background-color: #251d58;
   padding: 10px 30px;
   border-radius: 5px;
   color: #ffffff;
@@ -10,19 +11,27 @@
   outline: none;
   border: none;
 }
-.btn-luxury:hover{
+.btn-luxury:hover {
   color: #ffffff;
 }
 
-.hl{
+.hl {
   width: 170px;
   height: 1px;
-  background-color: #AAAAAA;
-  margin:auto;
+  background-color: #aaaaaa;
+  margin: auto;
 }
-.primary-text{
-  color:#1F1632
+.primary-text {
+  color: #1f1632;
 }
-.secondary-text{
-  color:#606268
+.secondary-text {
+  color: #606268;
+}
+
+.heading-main {
+  text-transform: uppercase;
+  color: #1f1632;
+  font-weight: 700;
+  font-size: 30px;
+  text-align: center;
 }

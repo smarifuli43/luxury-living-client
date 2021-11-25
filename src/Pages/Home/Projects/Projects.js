@@ -28,7 +28,7 @@ const items = [
 
 const Projects = () => {
   return (
-    <div className='container text-center my-5 py-5'>
+    <div className='container text-center my-5 py-5' >
       <h5 className='primary-text'>Projects</h5>
       <h2
         className='primary-text'

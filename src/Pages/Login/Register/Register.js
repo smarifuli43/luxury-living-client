@@ -136,7 +136,7 @@ const Register = () => {
               style={{ border: '1px solid #C7C7C7' }}
               onClick={facebookSignIn}
             >
-              <i class='fab fa-facebook fs-2' style={{ color: '#3076FF' }}></i>
+              <i className='fab fa-facebook fs-2' style={{ color: '#3076FF' }}></i>
               <span className='pe-1 pe-md-5'>Continue with Facebook</span>
             </button>
           </div>

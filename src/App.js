@@ -8,6 +8,7 @@ import Login from './Pages/Login/Login/Login';
 import NotFound from './Pages/NotFound/NotFound';
 import Register from './Pages/Login/Register/Register';
 import AuthProvider from './Context/AuthProvider';
+import AddService from './Pages/Dashboard/Admin/AddService/AddService';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path='login' element={<Login />} />
             <Route path='dashboard' element={<Dashboard />} />
             <Route path='register' element={<Register />} />
+            <Route path='add' element={<AddService/> }/>
             <Route path='*' element={<NotFound />} />
           </Routes>
         </Router>

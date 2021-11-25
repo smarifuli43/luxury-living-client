@@ -6,14 +6,22 @@ const Project = (props) => {
   return (
     <div>
       <Card className='h-100 card border-0'>
-        <Card.Img variant='top' src={img} height='450px' />
+        <Card.Img
+          variant='top'
+          src={img}
+          style={{ height: '400px', maxWidth: '400px' }}
+          className='mx-auto'
+        />
         <Card.Body>
-          <Card.Title className='mb-2 fw-bold' style={{fontSize:'20px'}}>
+          <Card.Title className='mb-2 fw-bold' style={{ fontSize: '20px' }}>
             {name}
           </Card.Title>
           <Card.Text>
             <p className='secondary-text'>
-              <i class='fas fa-map-marker-alt' style={{ color: '#251D58' }}></i>{' '}
+              <i
+                className='fas fa-map-marker-alt'
+                style={{ color: '#251D58' }}
+              ></i>{' '}
               {location}
             </p>
           </Card.Text>
