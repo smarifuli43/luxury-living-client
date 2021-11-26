@@ -1,0 +1,9 @@
+.contact-form input,
+textarea{
+  width: 100%;
+  background-color: #F1F3F6;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 12px 10px;
+}
