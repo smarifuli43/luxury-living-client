@@ -6,10 +6,14 @@ import googleLogo from '../../../img/google-color.svg';
 import useAuth from '../../../Hooks/useAuth';
 import PasswordReset from '../Reset/PasswordReset/PasswordReset';
 import { Alert } from 'react-bootstrap';
+import { useNavigate, useLocation } from 'react-router';
+
 
 const Login = () => {
   const { signinWithEmailandPass, signInWithGoogle, signInWithFacebook } =
     useAuth();
+  const navigate = useNavigate()
+  const location = useLocation();
   const [modalShow, setModalShow] = React.useState(false);
 
   const { register, handleSubmit, reset, error } = useForm();
@@ -19,15 +23,15 @@ const Login = () => {
   };
   //  email signin
   const handleEmailandPassSignin = (user) => {
-    signinWithEmailandPass(user.email, user.password);
+    signinWithEmailandPass(user.email, user.password, navigate, location);
     reset();
   };
   const googleSignIn = () => {
-    signInWithGoogle();
+    signInWithGoogle( navigate, location);
   };
 
   const facebookSignIn = () => {
-    signInWithFacebook();
+    signInWithFacebook(navigate, location);
   };
 
   return (

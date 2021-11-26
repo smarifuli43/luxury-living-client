@@ -10,6 +10,7 @@ import Register from './Pages/Login/Register/Register';
 import AuthProvider from './Context/AuthProvider';
 import AddService from './Pages/Dashboard/Admin/AddService/AddService';
 import ExploreServices from './Pages/ExploreServices/ExploreServices';
+import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -20,10 +21,18 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='home' element={<Home />} />
             <Route path='login' element={<Login />} />
-            <Route path='dashboard' element={<Dashboard />} />
+            <Route
+              path='dashboard'
+              element={
+                <PrivateRoute>
+                 <Dashboard/>
+                </PrivateRoute>
+              }
+            ></Route>
+        
             <Route path='register' element={<Register />} />
-            <Route path='add' element={<AddService/> }/>
-            <Route path='exploreservices' element={<ExploreServices/> }/>
+            <Route path='add' element={<AddService />} />
+            <Route path='exploreservices' element={<ExploreServices />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
         </Router>

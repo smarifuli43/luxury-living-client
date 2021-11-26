@@ -11,7 +11,7 @@ const Header = () => {
 
   return (
     <div>
-      <Navbar bg='light' variant='light' expand='md'>
+      <Navbar bg='light' variant='light' expand='lg'>
         <Container>
           <Navbar.Brand>
             <Link to='/home'>
@@ -27,11 +27,11 @@ const Header = () => {
             className='border-0'
           />
           <Navbar.Collapse id='responsive-navbar-nav'>
-            <Nav className='ms-auto d-flex align-items-start align-items-md-center '>
+            <Nav className='ms-auto d-flex align-items-start align-items-lg-center '>
               <NavLink
                 to='/home'
                 className={({ isActive }) =>
-                  isActive ? 'active mt-4 mt-md-0' : 'ms-md-4 mt-4 mt-md-0 '
+                  isActive ? 'active mt-4 mt-lg-0' : 'ms-lg-4 mt-4 mt-lg-0 '
                 }
               >
                 Home
@@ -40,7 +40,7 @@ const Header = () => {
               <NavLink
                 to='/about'
                 className={({ isActive }) =>
-                  isActive ? 'active' : 'ms-md-4 mt-4 mt-md-0 '
+                  isActive ? 'active' : 'ms-lg-4 mt-4 mt-lg-0 '
                 }
               >
                 About
@@ -48,7 +48,7 @@ const Header = () => {
               <NavLink
                 to='/contact'
                 className={({ isActive }) =>
-                  isActive ? 'active' : 'ms-md-4 mt-4 mt-md-0 '
+                  isActive ? 'active' : 'ms-lg-4 mt-4 mt-lg-0 '
                 }
               >
                 Contact
@@ -56,30 +56,32 @@ const Header = () => {
               <NavLink
                 to='/project'
                 className={({ isActive }) =>
-                  isActive ? 'active' : 'ms-md-4  mt-4 mt-md-0'
+                  isActive ? 'active' : 'ms-lg-4  mt-4 mt-lg-0'
                 }
               >
                 Projects
               </NavLink>
-              <NavLink
-                to='/admin'
-                className={({ isActive }) =>
-                  isActive ? 'active ' : 'ms-md-4 mt-4 mt-md-0 '
-                }
-              >
-                Admin
-              </NavLink>
+              {(
+                <NavLink
+                  to='/dashboard'
+                  className={({ isActive }) =>
+                    isActive ? 'active ' : 'ms-lg-4 mt-4 mt-lg-0 '
+                  }
+                >
+                  Dashboard
+                </NavLink>
+              )}
               {user?.email ? (
                 <div>
                   <button
-                    className='btn-luxury ms-md-4 my-4 my-md-0'
+                    className='btn-luxury ms-lg-4 my-4 my-lg-0'
                     onClick={() => logout(navigate)}
                   >
                     Logout
                   </button>
                 </div>
               ) : (
-                <Link className='btn-luxury ms-md-4 my-4 my-md-0' to='/login'>
+                <Link className='btn-luxury ms-lg-4 my-4 my-lg-0' to='/login'>
                   Login
                 </Link>
               )}
