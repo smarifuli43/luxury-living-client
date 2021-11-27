@@ -11,6 +11,9 @@ import AuthProvider from './Context/AuthProvider';
 import AddService from './Pages/Dashboard/Admin/AddService/AddService';
 import ExploreServices from './Pages/ExploreServices/ExploreServices';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
+import DashboardHome from './Pages/Dashboard/DashboardHome/DashboardHome';
+import Booking from './Pages/Dashboard/User/Booking/Booking';
+import Review from './Pages/Dashboard/User/Review/Review';
 
 function App() {
   return (
@@ -25,13 +28,19 @@ function App() {
               path='dashboard'
               element={
                 <PrivateRoute>
-                 <Dashboard/>
+                  <Dashboard />
                 </PrivateRoute>
               }
-            ></Route>
-        
+            >
+              <Route path={'/dashboard'} element={<DashboardHome />}></Route>
+              <Route path='booking' element={<Booking />}></Route>
+              <Route path='addservice' element={<AddService />}></Route>
+              <Route path='review' element={<Review />}></Route>
+              <Route path='review' element={<Review />}></Route>
+              <Route path='review' element={<Review />}></Route>
+            </Route>
+
             <Route path='register' element={<Register />} />
-            <Route path='add' element={<AddService />} />
             <Route path='exploreservices' element={<ExploreServices />} />
             <Route path='*' element={<NotFound />} />
           </Routes>

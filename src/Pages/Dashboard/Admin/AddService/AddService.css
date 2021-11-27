@@ -1,5 +1,5 @@
 .add-service {
-  box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
 }
 .add-service form input,
