@@ -41,6 +41,7 @@ function App() {
               <Route path='makeadmin' element={<MakeAdmin/>}></Route>
               <Route path='orders' element={<Orders/>}></Route>
               <Route path='manageservice' element={<ManageService/>}></Route>
+              <Route path='review' element={<Review/>}></Route>
             </Route>
 
             <Route path='register' element={<Register />} />

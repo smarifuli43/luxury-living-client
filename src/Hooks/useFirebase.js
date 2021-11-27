@@ -134,8 +134,12 @@ const useFirebase = () => {
     return () => unsubscibed;
   }, [auth]);
 
-
-  // see whether 
+  // see whether admin or not
+  useEffect(() => {
+    fetch(`http://localhost:5000/users/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setAdmin(data.admin));
+  }, [user.email]);
 
   // save user to the database
   const saveUser = (email, name, method) => {

@@ -8,7 +8,8 @@ import useAuth from '../../../Hooks/useAuth';
 
 const Dashboard = () => {
   const [menustate, setMenuState] = useState(false);
-  const { user, logout } = useAuth();
+  const { user, logout, admin } = useAuth();
+  console.log(admin);
   const navigate = useNavigate();
   const signOut = () => {
     logout(navigate);
@@ -30,6 +31,14 @@ const Dashboard = () => {
               : 'sidebar-wrapper px-2'
           }
         >
+          <Link to='/home'>
+            <img
+              src={logo}
+              alt=''
+              className='mt-3 ms-3 '
+              style={{ width: '130px', height: '50px' }}
+            />
+          </Link>
           <div className='d-flex flex-column px-2 position-relative'>
             <CloseButton
               onClick={() => setMenuState(false)}
@@ -47,84 +56,93 @@ const Dashboard = () => {
               </span>
               Dashboard
             </Link>
-            <NavLink
-              to='/dashboard/booking'
-              className={({ isActive }) =>
-                isActive ? 'active-dash mt-3' : 'mt-3 text-secondary'
-              }
-            >
-              <span>
-                <i className='fas fa-shopping-basket me-2 f'></i>
-              </span>
-              Booking List
-            </NavLink>
-            <NavLink
-              to='/dashboard/review'
-              className={({ isActive }) =>
-                isActive ? 'active-dash mt-3' : 'mt-3  text-secondary'
-              }
-            >
-              {' '}
-              <span>
-                <i className='far fa-comment-alt me-2 '></i>
-              </span>
-              Review
-            </NavLink>
-            <NavLink
-              to='/dashboard/orders'
-              className={({ isActive }) =>
-                isActive ? 'active-dash mt-3' : 'mt-3  text-secondary'
-              }
-            >
-              {' '}
-              <span>
-                <i className='fas fa-tasks me-2'></i>
-              </span>
-              Order list
-            </NavLink>
-            <NavLink
-              to='/dashboard/addservice'
-              className={({ isActive }) =>
-                isActive ? 'active-dash mt-3' : 'mt-3  text-secondary'
-              }
-            >
-              {' '}
-              <span>
-                <i className='fas fa-plus me-2'></i>
-              </span>
-              Add Service
-            </NavLink>
-            <NavLink
-              to='/dashboard/makeadmin'
-              className={({ isActive }) =>
-                isActive ? 'active-dash mt-3' : 'mt-3  text-secondary'
-              }
-            >
-              {' '}
-              <span>
-                <i className='fas fa-user-plus me-2'></i>
-              </span>
-              Make Admin
-            </NavLink>
-            <NavLink
-              to='/dashboard/manageservice'
-              className={({ isActive }) =>
-                isActive ? 'active-dash mt-3' : 'mt-3  text-secondary'
-              }
-            >
-              {' '}
-              <span>
-                <i className='fas fa-th-large me-2'></i>
-              </span>
-              Manage Service
-            </NavLink>
+            {!admin && (
+              <>
+                <NavLink
+                  to='/dashboard/booking'
+                  className={({ isActive }) =>
+                    isActive ? 'active-dash mt-3' : 'mt-3 text-secondary'
+                  }
+                >
+                  <span>
+                    <i className='fas fa-shopping-basket me-2 f'></i>
+                  </span>
+                  Booking List
+                </NavLink>
+                <NavLink
+                  to='/dashboard/review'
+                  className={({ isActive }) =>
+                    isActive ? 'active-dash mt-3' : 'mt-3  text-secondary'
+                  }
+                >
+                  {' '}
+                  <span>
+                    <i className='far fa-comment-alt me-2 '></i>
+                  </span>
+                  Review
+                </NavLink>
+              </>
+            )}
+
+            {admin && (
+              <>
+                <NavLink
+                  to='/dashboard/orders'
+                  className={({ isActive }) =>
+                    isActive ? 'active-dash mt-3' : 'mt-3  text-secondary'
+                  }
+                >
+                  {' '}
+                  <span>
+                    <i className='fas fa-tasks me-2'></i>
+                  </span>
+                  Order list
+                </NavLink>
+                <NavLink
+                  to='/dashboard/addservice'
+                  className={({ isActive }) =>
+                    isActive ? 'active-dash mt-3' : 'mt-3  text-secondary'
+                  }
+                >
+                  {' '}
+                  <span>
+                    <i className='fas fa-plus me-2'></i>
+                  </span>
+                  Add Service
+                </NavLink>
+                <NavLink
+                  to='/dashboard/makeadmin'
+                  className={({ isActive }) =>
+                    isActive ? 'active-dash mt-3' : 'mt-3  text-secondary'
+                  }
+                >
+                  {' '}
+                  <span>
+                    <i className='fas fa-user-plus me-2'></i>
+                  </span>
+                  Make Admin
+                </NavLink>
+                <NavLink
+                  to='/dashboard/manageservice'
+                  className={({ isActive }) =>
+                    isActive ? 'active-dash mt-3' : 'mt-3  text-secondary'
+                  }
+                >
+                  {' '}
+                  <span>
+                    <i className='fas fa-th-large me-2'></i>
+                  </span>
+                  Manage Service
+                </NavLink>
+              </>
+            )}
             <button className='btn-dash mt-4 ' onClick={signOut}>
               <i className='fas fa-sign-out-alt me-2'></i>
               Logout
             </button>
           </div>
         </div>
-        <div className='pb-5 pt-md-5 w-100 container'>
+        <div className='pb-5 pt-md-5 w-100 container dash-container'>
           <button
             className='hamburger btn mb-5'
             onClick={() => setMenuState(!menustate)}

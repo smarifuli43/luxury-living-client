@@ -68,6 +68,7 @@ const AddService = () => {
                   Description
                 </label>
                 <textarea
+                  className='bg-white'
                   rows='4'
                   placeholder='Short description'
                   {...register('description', { required: true })}

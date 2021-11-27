@@ -17,7 +17,6 @@ const Login = () => {
   const [modalShow, setModalShow] = React.useState(false);
 
   const { register, handleSubmit, reset, error } = useForm();
-  console.log(error);
   const onSubmit = (data) => {
     handleEmailandPassSignin(data);
   };
