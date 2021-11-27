@@ -27,8 +27,8 @@ const AddService = () => {
   };
   return (
     <div className='row  d-flex justify-content-center '>
-      <div className='col-12 col-md-10 col-lg-8 '>
-        <div className='add-service bg-white p-4 '>
+      <div className='col-12 col-md-10 col-lg-9 '>
+        <div className='add-service box-shadow bg-white p-4 '>
           <h3 className='mb-5 heading-main'>Add a Service</h3>
 
           <form onSubmit={handleSubmit(onSubmit)}>

@@ -1,5 +1,4 @@
-
-.add-service form input,
+.admin form input,
 textarea {
   margin-bottom: 20px;
   border-radius: 3px;
@@ -8,7 +7,7 @@ textarea {
   outline: none;
   width: 100%;
 }
-.add-service form input:focus,
+.admin form input:focus,
 textarea:focus {
   border: 1px solid #251d58;
 }

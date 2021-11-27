@@ -14,6 +14,9 @@ import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import DashboardHome from './Pages/Dashboard/DashboardHome/DashboardHome';
 import Booking from './Pages/Dashboard/User/Booking/Booking';
 import Review from './Pages/Dashboard/User/Review/Review';
+import MakeAdmin from './Pages/Dashboard/Admin/MakeAdmin/MakeAdmin';
+import Orders from './Pages/Dashboard/Admin/Orders/Orders';
+import ManageService from './Pages/Dashboard/Admin/ManageService/ManageService';
 
 function App() {
   return (
@@ -35,9 +38,9 @@ function App() {
               <Route path={'/dashboard'} element={<DashboardHome />}></Route>
               <Route path='booking' element={<Booking />}></Route>
               <Route path='addservice' element={<AddService />}></Route>
-              <Route path='review' element={<Review />}></Route>
-              <Route path='review' element={<Review />}></Route>
-              <Route path='review' element={<Review />}></Route>
+              <Route path='makeadmin' element={<MakeAdmin/>}></Route>
+              <Route path='orders' element={<Orders/>}></Route>
+              <Route path='manageservice' element={<ManageService/>}></Route>
             </Route>
 
             <Route path='register' element={<Register />} />

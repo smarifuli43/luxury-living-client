@@ -37,13 +37,13 @@ const Dashboard = () => {
             />
             <Link to='/home' className='mt-5 text-secondary'>
               <span>
-                <i class='fas fa-home me-2 f'></i>
+                <i className='fas fa-home me-2 f'></i>
               </span>
               Home
             </Link>
             <Link to='/dashboard' className='mt-3 text-secondary'>
               <span>
-                <i class='fas fa-tools me-2 f'></i>
+                <i className='fas fa-tools me-2 f'></i>
               </span>
               Dashboard
             </Link>
@@ -54,7 +54,7 @@ const Dashboard = () => {
               }
             >
               <span>
-                <i class='fas fa-shopping-basket me-2 f'></i>
+                <i className='fas fa-shopping-basket me-2 f'></i>
               </span>
               Booking List
             </NavLink>
@@ -66,7 +66,7 @@ const Dashboard = () => {
             >
               {' '}
               <span>
-                <i class='far fa-comment-alt me-2 '></i>
+                <i className='far fa-comment-alt me-2 '></i>
               </span>
               Review
             </NavLink>
@@ -78,7 +78,7 @@ const Dashboard = () => {
             >
               {' '}
               <span>
-                <i class='fas fa-tasks me-2'></i>
+                <i className='fas fa-tasks me-2'></i>
               </span>
               Order list
             </NavLink>
@@ -90,7 +90,7 @@ const Dashboard = () => {
             >
               {' '}
               <span>
-                <i class='fas fa-plus me-2'></i>
+                <i className='fas fa-plus me-2'></i>
               </span>
               Add Service
             </NavLink>
@@ -102,7 +102,7 @@ const Dashboard = () => {
             >
               {' '}
               <span>
-                <i class='fas fa-user-plus me-2'></i>
+                <i className='fas fa-user-plus me-2'></i>
               </span>
               Make Admin
             </NavLink>
@@ -114,17 +114,17 @@ const Dashboard = () => {
             >
               {' '}
               <span>
-                <i class='fas fa-th-large me-2'></i>
+                <i className='fas fa-th-large me-2'></i>
               </span>
               Manage Service
             </NavLink>
             <button className='btn-dash mt-4 ' onClick={signOut}>
-              <i class='fas fa-sign-out-alt me-3'></i>
+              <i className='fas fa-sign-out-alt me-2'></i>
               Logout
             </button>
           </div>
         </div>
-        <div className='pb-5 pt-md-5 w-100'>
+        <div className='pb-5 pt-md-5 w-100 container'>
           <button
             className='hamburger btn mb-5'
             onClick={() => setMenuState(!menustate)}

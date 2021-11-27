@@ -20,7 +20,7 @@ const useFirebase = () => {
   const [user, setUser] = useState({});
   const [success, setSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-
+  const [admin, setAdmin] = useState(false);
 
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
@@ -55,7 +55,7 @@ const useFirebase = () => {
 
   // signin with email and pass
   const signinWithEmailandPass = (email, password, navigate, location) => {
-        setIsLoading(true);
+    setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
         setUser(result.user);
@@ -67,12 +67,11 @@ const useFirebase = () => {
         setError(error.message);
       })
       .finally(() => setIsLoading(false));
-;
   };
 
   // google signin
   const signInWithGoogle = (navigate, location) => {
-        setIsLoading(true);
+    setIsLoading(true);
 
     signInWithPopup(auth, googleProvider)
       .then((result) => {
@@ -92,9 +91,9 @@ const useFirebase = () => {
   const signInWithFacebook = () => {
     signInWithPopup(auth, facebookProvider)
       .then((result) => {
-         const user = result.user;
-         setUser(user);
-         saveUser(user.email, user.displayName, 'PUT');
+        const user = result.user;
+        setUser(user);
+        saveUser(user.email, user.displayName, 'PUT');
       })
       .catch((error) => {
         setError(error.message);
@@ -135,6 +134,9 @@ const useFirebase = () => {
     return () => unsubscibed;
   }, [auth]);
 
+
+  // see whether 
+
   // save user to the database
   const saveUser = (email, name, method) => {
     const user = { email, name };
@@ -149,6 +151,7 @@ const useFirebase = () => {
 
   return {
     user,
+    admin,
     setUser,
     error,
     createNewUser,
@@ -162,7 +165,6 @@ const useFirebase = () => {
     setError,
     isLoading,
     setIsLoading,
-
   };
 };
 

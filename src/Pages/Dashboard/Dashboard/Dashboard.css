@@ -17,11 +17,12 @@
 }
 .wrapper {
   display: flex;
+  min-height: 100vh;
 }
 .sidebar-wrapper {
   height: 100vh;
   background-color: #ffffff;
-  width: 220px;
+  width: 250px;
   box-shadow: 2px 2px 10px -5px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-out;
   margin-left: -12px;
@@ -46,7 +47,7 @@
 }
 .btn-dash{
 border: 1px solid #251d58;
-  padding: 10px 30px;
+  padding: 10px 25px;
   border-radius: 5px;
   transition: all .3s ease;
   color: #251d58;
