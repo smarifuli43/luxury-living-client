@@ -5,7 +5,7 @@ const Testimonial = (props) => {
   const { name, role, review, rating, img } = props.testimonial;
   return (
     <div className=''>
-      <div className='bg-white text-start p-3 rounded-3'>
+      <div className='bg-white h-100 text-start p-3 rounded-3'>
         <div className='d-flex'>
           {img ? (
             <img
@@ -16,7 +16,10 @@ const Testimonial = (props) => {
               className='rounded-circle'
             />
           ) : (
-            <i class='fas fa-user rounded-circle' style={{fontSize:'45px'}}></i>
+            <i
+              class='fas fa-user rounded-circle'
+              style={{ fontSize: '45px' }}
+            ></i>
           )}
 
           <div className='d-flex flex-column justify-content-center ps-3'>

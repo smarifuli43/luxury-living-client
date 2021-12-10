@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './Service.css';
 
 const Service = (props) => {
@@ -25,12 +26,15 @@ const Service = (props) => {
           <Card.Text>
             <p className='secondary-text'>{description.slice(0, 120)}</p>
           </Card.Text>
-          <button
+          <Link to={`/booking/${_id}`}>
+            <button
             className='btn btn-outline-dark py-2 shadow-sm'
             style={{ borderColor: '#251d58' }}
           >
             Booking
           </button>
+          </Link>
+          
         </Card.Body>
       </Card>
     </div>

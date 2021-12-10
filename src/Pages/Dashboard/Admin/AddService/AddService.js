@@ -22,6 +22,9 @@ const AddService = () => {
         if (data.insertedId) {
           setSuccess(true);
           reset();
+           setTimeout(() => {
+             setSuccess(false);
+           }, 5000);
         }
       });
   };
